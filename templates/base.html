@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF8"/>
+        <Title>{{ title }}</Title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}"/>
+        {% block links %}
+        {% endblock %}
+    </head>
+
+    <body>
+        <header>
+            <small>Version 1.0</small>
+            <h1>Dragon Fusion</h1>
+            <ul>
+                <a href="{{url_for('game')}}" target="_blank">Play</a>
+            </ul>
+
+
+        </header>
+    
+        <nav id="nav">
+            <ul>
+                <li><a href="{{url_for('index')}}">Home</a></li>
+                <li><a href="{{url_for('leaderboard')}}">Leaderboard</a></li>               
+            </ul>
+        </nav>
+  
+    <main>
+
+        {% if g.user_name %}
+        <p>Name: {{ g.user_name }}</p>
+        <p><a href="{{url_for('logout')}}">Logout</a></p>
+
+        {% else %}
+        <p><a href="{{url_for('login')}}">Login</a></p>
+        <p><a href="{{url_for('register')}}">Register</a></p>
+        <section id="main_content">
+        {% endif %}
+        {% block main_content %}
+        {% endblock %}
+        </section>
+    </main>
+
+    </body>
+</html>

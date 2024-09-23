@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<h1>Leaderboard</h1>
+{% if top_scores %}
+ <table>
+    <caption>Top 10 scores</caption>
+        <tr id="leaderboard_headings">
+            <th span="col">Rank</th>
+            <th span="col">Player</th>
+            <th span="col">Small Mobs Killed</th>
+            <th span="col">Medium Mobs Killed</th>
+            <th span="col">Large Mobs Killed</th>
+            <th span="col">Score</th>
+            <th span="col">Survival Time</th>
+            <th span="col">Record Date</th>
+        </tr>
+    {% for player in top_scores %}
+        <tr>
+            <th span="row" id="leaderboard_ranks">{{top_scores.index(player)+1}}</th>
+            <td>{{player["user_name"]}}</td>
+            <td>{{player["small_mob"]}}</td>
+            <td>{{player["medium_mob"]}}</td>
+            <td>{{player["large_mob"]}}</td>
+            <td>{{player["score"]}}</td>
+            <td>{{player["time"]}}</td>
+            <td>{{player["date"]}}</td>
+        </tr>
+    {% endfor %}
+    {% endif %}
+ </table>
+{% endblock %}

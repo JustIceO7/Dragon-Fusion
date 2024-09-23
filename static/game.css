@@ -1,0 +1,25 @@
+canvas {
+    background-color: black;
+    display: block;
+    margin: 1em auto;
+    border: 2px solid darkblue;
+}
+
+#controls {
+    column-count: 6;
+    background-color: azure;
+    border: 1px solid black;
+    padding: 1em;
+    padding-top: 0em;
+    margin: 1em;
+}
+
+#controls h2 {
+    text-align: center;
+    column-span: all;
+}
+
+#controls p {
+    margin:0em;
+    text-align: center;
+}

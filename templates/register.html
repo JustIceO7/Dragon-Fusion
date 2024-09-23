@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block links %}
+<script src="register.js" type="module"></script>
+{% endblock %}
+
+{% block main_content %}
+<h2>Register</h2>
+<form action="" method="post" novalidate>
+    {{form.hidden_tag()}}
+
+    {{form.user_name.label}}
+    <br/>
+    {{form.user_name()}}
+    {% for error in form.user_name.errors %}
+        {{error}}
+    {% endfor %}
+    <br/>
+    {{form.password.label}}
+    <br/>
+    {{form.password()}}
+    {% for error in form.password.errors %}
+        {{error}}
+    {% endfor %}
+    <br/>
+    {{form.password2.label}}
+    <br/>
+    {{form.password2()}}
+    {% for error in form.password2.errors %}
+        {{error}}
+    {% endfor %}
+
+    {{form.submit()}}
+</form>
+{% endblock %}
+
